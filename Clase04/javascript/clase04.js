@@ -82,4 +82,4 @@ function correctDiscount(discount){
 }
 
 window.onload = userExist(prompt("Username?"),prompt("Password?"));
-alert("The total is: "+addIva(addDiscount(buyGames(user),correctDiscount(prompt("Type a discount code!")))));
+window.onload = alert("The total is: "+addIva(addDiscount(buyGames(user),correctDiscount(prompt("Type a discount code!")))));
