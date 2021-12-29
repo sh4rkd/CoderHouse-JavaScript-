@@ -1,9 +1,13 @@
-function buyGames(){
+let user = "pepe";
+let password = "pepe";
+
+function buyGames(name){
     let gamePrices = 0;
     let exit = true;
+    alert("Hi! "+name+" Welcome to the Game Store.")
 
     while(exit){
-        let categoriesSelected = parseInt(prompt("Select your option:\n1 - Horror Games \n2 - Adventure Games"));
+        let categoriesSelected = parseInt(prompt("Select your option:\n1 - Horror Games \n2 - Adventure Games\n3 - Exit"));
         let gameSelected;
         if(categoriesSelected==1){
             gameSelected = parseInt(prompt("Welcome to Horror Section, what game do you want?\n1 - Project Zomboid\n2 - Phasmophobia\n3 - Dead By Daylight\n4 - The Forest"));
@@ -32,7 +36,7 @@ function buyGames(){
                 alert("Error please type a number 1 to 4");
             }
         }else if(categoriesSelected == 3){
-            return gamePrices.toFixed(2);
+            return gamePrices;
             exit = false;
         }else{
             alert("Error please select 1 to 3");
@@ -41,7 +45,41 @@ function buyGames(){
 }
 
 function addIva(price){
-    
+    return parseFloat(price+(price*.16)).toFixed(2);
 }
 
-buyGames();
+function addDiscount(price,discount){
+    return price-(price*parseFloat(discount));
+}
+
+function userExist(username,userpassword){
+    if(user == username && password == userpassword){
+        return false;
+    }else{
+        alert("This user don't exist please continue to register:");
+        registerUser();
+    }    
+}
+
+function registerUser(){
+let correctName = true;
+    while(correctName){
+        let userName = prompt("Please type your username:");
+        if(parseInt(prompt("Your user name is: "+userName+"?\n1 - Yes\n2 - No"))==1){
+            user = userName;
+            password = prompt("Please type your password:");
+            correctName = userExist(user,password);
+        } 
+    }
+}
+
+function correctDiscount(discount){
+    if(discount == "coder"){
+        return .50;
+    }else{
+        return 0;
+    }
+}
+
+window.onload = userExist(prompt("Username?"),prompt("Password?"));
+alert("The total is: "+addIva(addDiscount(buyGames(user),correctDiscount(prompt("Type a discount code!")))));
