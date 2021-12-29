@@ -40,4 +40,4 @@ function buyGames(){
     }    
 }
 
-buyGames();
+document.onload = buyGames();
