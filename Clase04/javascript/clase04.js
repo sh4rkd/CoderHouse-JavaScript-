@@ -32,12 +32,16 @@ function buyGames(){
                 alert("Error please type a number 1 to 4");
             }
         }else if(categoriesSelected == 3){
-            alert("Total of your games: "+gamePrices.toFixed(2));
+            return gamePrices.toFixed(2);
             exit = false;
         }else{
             alert("Error please select 1 to 3");
         }
     }    
+}
+
+function addIva(price){
+    
 }
 
 buyGames();
