@@ -66,7 +66,7 @@ class User{
     }
 
     showData(){
-        return "your name: "+this.name+"\nyour age: "+this.age+"your user: "+this.user+"\nyour password: "+this.password;
+        return "your name: "+this.name+"\nyour age: "+this.age+"\nyour user: "+this.user+"\nyour password: "+this.password;
     }
 
     changeData(option){
@@ -84,13 +84,14 @@ class User{
     }
 }
 
+document.onload = console.log("loading :D");
 
 const user = new User(prompt("What's your name?"),parseInt(prompt("How old are you?")),prompt("Please type your username"),prompt("Type your password"));
 
 alert("The total is: "+addIva(addDiscount(buyGames(user.name),correctDiscount(prompt("Type a discount code!")))));
 
-user.showData();
+alert(user.showData());
 
 user.changeData(parseInt(prompt("Please select an option:\n1 - change your name\n2 - change your age\n3 - change your user\n4 - change your password")));
 
-user.showData();
+alert(user.showData());
