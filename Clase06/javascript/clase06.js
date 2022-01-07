@@ -61,7 +61,7 @@ function gameSort(property){
                 console.log(games.sort((a,b) => a.gamePrice - b.gamePrice));
             break;
         default:
-             console.log("Error type a number 1 - 3");
+            console.log("Error type a number 1 - 3");
     }
 }
 
