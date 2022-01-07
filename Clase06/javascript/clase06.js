@@ -49,16 +49,28 @@ const games = [
     }
 ]
 
-function gameSort(property){
+function gameSort(property,ascDesc){
     switch(property){
         case 1:
-                console.log(games.sort((a,b) => (a.gameName < b.gameName) ? -1 : (a.gameName > b.gameName) ? 1 : 0));
+                if(ascDesc == 1){
+                    console.log(games.sort((a,b) => (a.gameName < b.gameName) ? -1 : (a.gameName > b.gameName) ? 1 : 0));
+                }else{
+                    console.log(games.sort((a,b) => (a.gameName < b.gameName) ? 1 : (a.gameName > b.gameName) ? -1 : 0));
+                }
             break;
         case 2:
-                console.log(games.sort((a,b) => (a.gameCategorie < b.gameCategorie) ? -1 : (a.gameCategorie > b.gameCategorie) ? 1 : 0));
+                if(ascDesc == 1){
+                    console.log(games.sort((a,b) => (a.gameCategorie < b.gameCategorie) ? -1 : (a.gameCategorie > b.gameCategorie) ? 1 : 0));
+                }else{
+                    console.log(games.sort((a,b) => (a.gameCategorie < b.gameCategorie) ? 1 : (a.gameCategorie > b.gameCategorie) ? -1 : 0));
+                }
             break;
         case 3:
-                console.log(games.sort((a,b) => a.gamePrice - b.gamePrice));
+                if(ascDesc == 1){
+                    console.log(games.sort((a,b) => a.gamePrice - b.gamePrice));
+                }else{
+                    console.log(games.sort((a,b) => b.gamePrice - a.gamePrice));
+                }
             break;
         default:
             console.log("Error type a number 1 - 3");
@@ -167,11 +179,11 @@ class User{
 let option = parseInt(prompt("Welcome to the ultra order object system 3.4 alpha\nPlease select what games do you want to order.\n1 - order by name\n2 - order by genre\n3 - order by price\nanother option >:D - exit"))
 
     if(option == 1){
-        gameSort(1);
+        gameSort(1,parseInt(prompt("Select if you want asc or desc\n1 - asc\n2 - desc")));
     }else if(option == 2){
-        gameSort(2);
+        gameSort(2,parseInt(prompt("Select if you want asc or desc\n1 - asc\n2 - desc")));
     }else if(option == 3){
-        gameSort(3);
+        gameSort(3,parseInt(prompt("Select if you want asc or desc\n1 - asc\n2 - desc")));
     }else{
         alert("Goodbye :D");
     }
