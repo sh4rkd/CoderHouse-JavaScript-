@@ -53,23 +53,23 @@ function gameSort(property,ascDesc){
     switch(property){
         case 1:
                 if(ascDesc == 1){
-                    console.log(games.sort((a,b) => (a.gameName < b.gameName) ? -1 : (a.gameName > b.gameName) ? 1 : 0));
+                    console.log({...games.sort((a,b) => (a.gameName < b.gameName) ? -1 : (a.gameName > b.gameName) ? 1 : 0)});
                 }else{
-                    console.log(games.sort((a,b) => (a.gameName < b.gameName) ? 1 : (a.gameName > b.gameName) ? -1 : 0));
+                    console.log({...games.sort((a,b) => (a.gameName < b.gameName) ? 1 : (a.gameName > b.gameName) ? -1 : 0)});
                 }
             break;
         case 2:
                 if(ascDesc == 1){
-                    console.log(games.sort((a,b) => (a.gameCategorie < b.gameCategorie) ? -1 : (a.gameCategorie > b.gameCategorie) ? 1 : 0));
+                    console.log({...games.sort((a,b) => (a.gameCategorie < b.gameCategorie) ? -1 : (a.gameCategorie > b.gameCategorie) ? 1 : 0)});
                 }else{
-                    console.log(games.sort((a,b) => (a.gameCategorie < b.gameCategorie) ? 1 : (a.gameCategorie > b.gameCategorie) ? -1 : 0));
+                    console.log({...games.sort((a,b) => (a.gameCategorie < b.gameCategorie) ? 1 : (a.gameCategorie > b.gameCategorie) ? -1 : 0)});
                 }
             break;
         case 3:
                 if(ascDesc == 1){
-                    console.log(games.sort((a,b) => a.gamePrice - b.gamePrice));
+                    console.log({...games.sort((a,b) => a.gamePrice - b.gamePrice)});
                 }else{
-                    console.log(games.sort((a,b) => b.gamePrice - a.gamePrice));
+                    console.log({...games.sort((a,b) => b.gamePrice - a.gamePrice)});
                 }
             break;
         default:
@@ -176,7 +176,9 @@ class User{
 
 // alert(user.showData());
 
-let option = parseInt(prompt("Welcome to the ultra order object system 3.4 alpha\nPlease select what games do you want to order.\n1 - order by name\n2 - order by genre\n3 - order by price\nanother option >:D - exit"))
+let exit = true;
+while(exit){
+    let option = parseInt(prompt("Welcome to the ultra order object system 3.4 alpha\nPlease select what games do you want to order.\n1 - order by name\n2 - order by genre\n3 - order by price\nanother option >:D - exit"))
 
     if(option == 1){
         gameSort(1,parseInt(prompt("Select if you want asc or desc\n1 - asc\n2 - desc")));
@@ -186,4 +188,18 @@ let option = parseInt(prompt("Welcome to the ultra order object system 3.4 alpha
         gameSort(3,parseInt(prompt("Select if you want asc or desc\n1 - asc\n2 - desc")));
     }else{
         alert("Goodbye :D");
+        exit = false;
     }
+}
+
+// let option = parseInt(prompt("Welcome to the ultra order object system 3.4 alpha\nPlease select what games do you want to order.\n1 - order by name\n2 - order by genre\n3 - order by price\nanother option >:D - exit"))
+
+//     if(option == 1){
+//         gameSort(1,parseInt(prompt("Select if you want asc or desc\n1 - asc\n2 - desc")));
+//     }else if(option == 2){
+//         gameSort(2,parseInt(prompt("Select if you want asc or desc\n1 - asc\n2 - desc")));
+//     }else if(option == 3){
+//         gameSort(3,parseInt(prompt("Select if you want asc or desc\n1 - asc\n2 - desc")));
+//     }else{
+//         alert("Goodbye :D");
+//     }
